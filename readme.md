@@ -32,10 +32,10 @@ namespace IotzioTest;
 class Program {
     static void Main(string[] args) {
         using var iotzioManager = new IotzioManager();
-        using var iotzio_infos = manager.ListConnectedBoards();
+        using var iotzioInfos = iotzioManager.ListConnectedBoards();
 
-        foreach (var iotzio_info in iotzio_infos) {
-            using var iotzio = iotzio_info.Open();
+        foreach (var iotzioInfo in iotzioInfos) {
+            using var iotzio = iotzioInfo.Open();
 
             Console.WriteLine($"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!");
         }
