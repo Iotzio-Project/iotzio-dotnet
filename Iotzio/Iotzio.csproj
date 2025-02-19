@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
@@ -22,7 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="runtime\**\*" Pack="true" PackagePath="runtime\$(RuntimeIdentifier)\" />
+    <Content Include="..\runtime\**" Pack="true" PackagePath="lib\net8.0\runtime" />
   </ItemGroup>
 
   <ItemGroup>

@@ -20,18 +20,25 @@ The Iotzio board is compatible with the following platforms:
 
 ## Installation
 
-Add `iotzio` as dependency to your `Cargo.toml`. Integration of the embedded-hal(-async) traits is available using crate feature `embedded-hal`
+Install `Iotzio` package using `nuget`.
 
 ## Usage
 Here is a simple example of how to use the iotzio crate:
 ```
-pub fn main() {
-    let iotzio_infos = iotzio::IotzioManager::new().list_connected_boards().unwarp();
+using Com.Iotzio.Api;
 
-    for iotzio_info in iotzio_infos {
-        let iotzio = iotzio_info.open().unwarp();
+namespace IotzioTest;
 
-        println!("Found Iotzio {0} with serial number {1}!", iotzio.version(), iotzio.serial_number());
+class Program {
+    static void Main(string[] args) {
+        using var iotzioManager = new IotzioManager();
+        using var iotzio_infos = manager.ListConnectedBoards();
+
+        foreach (var iotzio_info in iotzio_infos) {
+            using var iotzio = iotzio_info.Open();
+
+            Console.WriteLine($"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!");
+        }
     }
 }
 ```
