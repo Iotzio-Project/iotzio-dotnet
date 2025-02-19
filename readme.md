@@ -23,7 +23,7 @@ The Iotzio board is compatible with the following platforms:
 Install `Iotzio` package using `nuget`.
 
 ## Usage
-Here is a simple example of how to use the iotzio crate:
+Here is a simple example of how to use the Iotzio nuget package:
 ```
 using Com.Iotzio.Api;
 
