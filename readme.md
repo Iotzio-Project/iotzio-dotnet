@@ -27,19 +27,14 @@ Here is a simple example of how to use the Iotzio nuget package:
 ```
 using Com.Iotzio.Api;
 
-namespace IotzioTest;
+var iotzioManager = new IotzioManager();
+var iotzioInfos = iotzioManager.ListConnectedBoards();
 
-class Program {
-    static void Main(string[] args) {
-        using var iotzioManager = new IotzioManager();
-        using var iotzioInfos = iotzioManager.ListConnectedBoards();
+foreach (var iotzioInfo in iotzioInfos)
+{
+    using var iotzio = iotzioInfo.Open();
 
-        foreach (var iotzioInfo in iotzioInfos) {
-            using var iotzio = iotzioInfo.Open();
-
-            Console.WriteLine($"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!");
-        }
-    }
+    Console.WriteLine($"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!");
 }
 ```
 
