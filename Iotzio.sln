@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35806.99
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio", "Iotzio\Iotzio.csproj", "{B1532E08-37AE-4930-B397-BC334312AC0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.Net", "Iotzio.Net\Iotzio.Net.csproj", "{D851FBD6-D411-A176-DF7A-591B548D5465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.NetAndroid", "Iotzio.NetAndroid\Iotzio.NetAndroid.csproj", "{2C760EFE-440F-B343-C89B-8ABD786D8FEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1532E08-37AE-4930-B397-BC334312AC0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1532E08-37AE-4930-B397-BC334312AC0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1532E08-37AE-4930-B397-BC334312AC0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1532E08-37AE-4930-B397-BC334312AC0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D851FBD6-D411-A176-DF7A-591B548D5465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D851FBD6-D411-A176-DF7A-591B548D5465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D851FBD6-D411-A176-DF7A-591B548D5465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D851FBD6-D411-A176-DF7A-591B548D5465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C760EFE-440F-B343-C89B-8ABD786D8FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C760EFE-440F-B343-C89B-8ABD786D8FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C760EFE-440F-B343-C89B-8ABD786D8FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C760EFE-440F-B343-C89B-8ABD786D8FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2219F906-7B2C-470B-BE99-7DCA671AF225}
+	EndGlobalSection
+EndGlobal
