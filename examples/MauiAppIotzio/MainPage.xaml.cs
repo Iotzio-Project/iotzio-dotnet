@@ -1,25 +1,37 @@
-﻿namespace MauiAppIotzio
+﻿using Com.Iotzio.Api;
+
+namespace MauiAppIotzio
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnConnect(object sender, EventArgs e)
         {
-            count++;
+            try
+            {
+                var iotzioManager = new IotzioManager();
+                var iotzioInfos = iotzioManager.ListConnectedBoards();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+                if (!iotzioInfos.Any()) {
+                    LoggingText.Text += "No Iotzio connected!\n";
+                }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+                foreach (var iotzioInfo in iotzioInfos)
+                {
+                    using var iotzio = iotzioInfo.Open();
+
+                    LoggingText.Text += $"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!\n";
+                }
+            }
+            catch (Exception ex)
+            {
+                LoggingText.Text += $"Exception: {ex}\n";
+            }
         }
     }
-
 }
