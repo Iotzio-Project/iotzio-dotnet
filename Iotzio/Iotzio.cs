@@ -234,6 +234,14 @@ class NullCallStatusErrorHandler: CallStatusErrorHandler<UniffiException> {
 // synchronize itself
 class _UniffiHelpers {
     public delegate void RustCallAction(ref UniffiRustCallStatus status);
+
+
+    static _UniffiHelpers()
+    {
+        _ = IotzioCore.lazyInitializer;
+    }
+
+
     public delegate U RustCallFunc<out U>(ref UniffiRustCallStatus status);
 
     // Call a rust function that returns a Result<>.  Pass in the Error class companion that corresponds to the Err
@@ -4513,37 +4521,104 @@ public static class IotzioMethods {
 }
 
 
-public static class AndroidHelper
+
+
+internal static class IotzioCore
 {
 
-  private static bool libraryLoaded = false;
+    internal static readonly bool lazyInitializer = false;
 
-  /// <summary>
-  ///
-  /// Call this always on your MainActivity OnCreate function as stated:
-  ///
-  /// AndroidHelper.OnActivityCreate(Java.Interop.EnvironmentPointer, this.Handle);
-  ///
-  /// </summary>
-  /// <param name="javaEnvironmentPointer">Java.Interop.EnvironmentPointer</param>
-  /// <param name="androidContextHandle">Handle of any java class that is instance of Android.Content.Context</param>
-  /// <exception cref="Exception"></exception>
-  public static void OnActivityCreate(IntPtr javaEnvironmentPointer, IntPtr androidContextHandle)
-  {
-    if (OperatingSystem.IsAndroid() && !libraryLoaded)
+    static IotzioCore()
     {
-      var result = OnActivityCreateNative(javaEnvironmentPointer, IntPtr.Zero, androidContextHandle);
-
-      if (result != 1)
-      {
-        throw new Exception("Failed to initialize Android Context.");
-      }
-
-      libraryLoaded = true;
+        NativeLibrary.SetDllImportResolver(typeof(_UniffiHelpers).Assembly, DllImportResolver);
     }
-  }
 
-  [DllImport("iotzio_core", EntryPoint = "Java_com_iotzio_api_AndroidHelper_onActivityCreateNative")]
-  private static extern byte OnActivityCreateNative(IntPtr env, IntPtr thiz, IntPtr context);
+    private static IntPtr DllImportResolver(string libraryName, System.Reflection.Assembly assembly, DllImportSearchPath? searchPath)
+    {
+        if ("iotzio_core".Equals(libraryName))
+        {
+            var arch = RuntimeInformation.ProcessArchitecture.ToString().ToLower();
+
+            var os = (string?)null;
+            var prefix = (string?)null;
+            var suffix = (string?)null;
+
+            if (OperatingSystem.IsWindows())
+            {
+                os = "win";
+                prefix = string.Empty;
+                suffix = ".dll";
+            }
+            else if (OperatingSystem.IsLinux())
+            {
+                os = "linux";
+                prefix = "lib";
+                suffix = ".so";
+            }
+            else if (OperatingSystem.IsMacOS())
+            {
+                os = "osx";
+                prefix = "lib";
+                suffix = ".dylib";
+            }
+            else if (OperatingSystem.IsAndroid())
+            {
+                os = "android";
+                prefix = "lib";
+                suffix = ".so";
+            }
+
+            if (!string.IsNullOrWhiteSpace(arch) && !string.IsNullOrWhiteSpace(os) && prefix != null && !string.IsNullOrWhiteSpace(suffix))
+            {
+                var fullPath = Path.Combine(AppContext.BaseDirectory, "runtimes", $"{os}-{arch}", "native", $"{prefix}{libraryName}{suffix}");
+
+                if (File.Exists(fullPath))
+                {
+                    return NativeLibrary.Load(fullPath);
+                }
+            }
+        }
+
+        return IntPtr.Zero;
+    }
 }
+
+#if ANDROID
+public static partial class AndroidHelper
+{
+
+    static AndroidHelper()
+    {
+        _ = IotzioCore.lazyInitializer;
+    }
+
+    private static object? libraryLoaded = null;
+
+    /// <summary>
+    ///
+    /// Call this always on your MainActivity OnCreate function as stated:
+    ///
+    /// AndroidHelper.OnActivityCreate(this);
+    ///
+    /// </summary>
+    public static void OnActivityCreate(Android.Content.Context context)
+    {
+        LazyInitializer.EnsureInitialized(ref libraryLoaded, () =>
+        {
+            var result = OnActivityCreateNative(Java.Interop.JniEnvironment.EnvironmentPointer, IntPtr.Zero, context.Handle);
+
+            if (result != 1)
+            {
+                throw new Exception("Failed to initialize Android Context.");
+            }
+
+            return new();
+        });
+    }
+
+    [LibraryImport("iotzio_core", EntryPoint = "Java_com_iotzio_api_AndroidHelper_onActivityCreateNative")]
+    internal static partial byte OnActivityCreateNative(IntPtr env, IntPtr thiz, IntPtr context);
+}
+#endif
+
 

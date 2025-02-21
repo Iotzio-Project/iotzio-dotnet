@@ -1,11 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
     <Nullable>enable</Nullable>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <RuntimeIdentifiers>win-x64;win-x86;win-arm64;linux-x64;linux-x86;linux-arm64;linux-arm;osx-x64;osx-arm64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+    <RuntimeIdentifiers>android-x64;android-x86;android-arm64;android-arm</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  
   <PropertyGroup>
     <Version>0.1.0</Version>
     <Copyright>MIT</Copyright>
@@ -22,97 +32,48 @@
   </PropertyGroup>
 
 
-  <ItemGroup>
-    <!-- Windows x64 -->
-    <None Include="..\runtimes\win-x64\native\iotzio_core.dll">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/win-x64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Windows x86 -->
-    <None Include="..\runtimes\win-x86\native\iotzio_core.dll">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/win-x86/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Windows arm64 -->
-    <None Include="..\runtimes\win-arm64\native\iotzio_core.dll">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/win-arm64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Linux x64 -->
-    <None Include="..\runtimes\linux-x64\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/linux-x64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Linux x86 -->
-    <None Include="..\runtimes\linux-x86\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/linux-x86/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Linux arm64 -->
-    <None Include="..\runtimes\linux-arm64\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/linux-arm64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Linux arm -->
-    <None Include="..\runtimes\linux-arm\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/linux-arm/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- macOS x64 -->
-    <None Include="..\runtimes\osx-x64\native\libiotzio_core.dylib">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/osx-x64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- macOS arm64 -->
-    <None Include="..\runtimes\osx-arm64\native\libiotzio_core.dylib">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/osx-arm64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Android x64 -->
-    <None Include="..\runtimes\android-x64\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/android-x64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Android x86 -->
-    <None Include="..\runtimes\android-x86\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/android-x86/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Android arm64 -->
-    <None Include="..\runtimes\android-arm64\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/android-arm64/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <!-- Android arm -->
-    <None Include="..\runtimes\android-arm\native\libiotzio_core.so">
-      <Pack>true</Pack>
-      <PackagePath>runtimes/android-arm/native</PackagePath>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    
+    <None Include="../runtimes/win-x64/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-x64/native/" />
 
+    <None Include="../runtimes/win-x86/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-x86/native/" />
 
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-
-
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+    <None Include="../runtimes/win-arm64/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-arm64/native/" />
   
+    <None Include="../runtimes/linux-x64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-x64/native/" />
+
+    <None Include="../runtimes/linux-x86/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-x86/native/" />
+
+    <None Include="../runtimes/linux-arm64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-arm64/native/" />
+
+    <None Include="../runtimes/linux-arm/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-arm/native/" />
+
+    <None Include="../runtimes/osx-x64/native/libiotzio_core.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" />
+
+    <None Include="../runtimes/osx-arm64/native/libiotzio_core.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" />
+
+  </ItemGroup>
+
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+
+    <None Include="../runtimes/android-x64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-x64/native/" />
+
+    <None Include="../runtimes/android-x86/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-x86/native/" />
+
+    <None Include="../runtimes/android-arm64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-arm64/native/" />
+
+    <None Include="../runtimes/android-arm/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-arm/native/" />
+    
+  </ItemGroup>
+
+
+  <ItemGroup>
+    
+    <None Include="../README.md" Pack="true" PackagePath="/" />
+
+    <None Include="../LICENSE" Pack="true" PackagePath="/" />
+
+  </ItemGroup>
+
 </Project>

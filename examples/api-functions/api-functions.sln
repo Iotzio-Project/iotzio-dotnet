@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListIotzios", "ListIotzios\ListIotzios.csproj", "{887CE814-D784-46C9-8EEA-3B3595EC28D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio", "..\..\Iotzio\Iotzio.csproj", "{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
