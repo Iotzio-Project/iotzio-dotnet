@@ -9,22 +9,22 @@
   <ItemGroup>
     <None Update="libs\arm64-v8a\libiotzio_core.so">
       <Pack>true</Pack>
-      <PackagePath>libs/arm64-v8a/</PackagePath>
+      <PackagePath>/</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="libs\armeabi-v7a\libiotzio_core.so">
       <Pack>true</Pack>
-      <PackagePath>libs/armeabi-v7a/</PackagePath>
+      <PackagePath>/</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="libs\x86\libiotzio_core.so">
       <Pack>true</Pack>
-      <PackagePath>libs/x86/</PackagePath>
+      <PackagePath>/</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="libs\x86_64\libiotzio_core.so">
       <Pack>true</Pack>
-      <PackagePath>libs/x86_64/</PackagePath>
+      <PackagePath>/</PackagePath>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
