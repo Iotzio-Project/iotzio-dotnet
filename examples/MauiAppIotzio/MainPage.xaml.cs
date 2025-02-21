@@ -17,15 +17,18 @@ namespace MauiAppIotzio
                 var iotzioManager = new IotzioManager();
                 var iotzioInfos = iotzioManager.ListConnectedBoards();
 
-                if (!iotzioInfos.Any()) {
-                    LoggingText.Text += "No Iotzio connected!\n";
-                }
-
-                foreach (var iotzioInfo in iotzioInfos)
+                if (!iotzioInfos.Any())
                 {
-                    using var iotzio = iotzioInfo.Open();
+                    LoggingText.Text += "No Iotzio found!\n";
+                }
+                else
+                {
+                    foreach (var iotzioInfo in iotzioInfos)
+                    {
+                        using var iotzio = iotzioInfo.Open();
 
-                    LoggingText.Text += $"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!\n";
+                        LoggingText.Text += $"Found Iotzio {iotzio.Version()} with serial number {iotzio.SerialNumber()}!\n";
+                    }
                 }
             }
             catch (Exception ex)
