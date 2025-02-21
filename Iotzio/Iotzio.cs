@@ -236,6 +236,7 @@ class _UniffiHelpers {
     public delegate void RustCallAction(ref UniffiRustCallStatus status);
 
 
+
 #if ANDROID
 #else
     static _UniffiHelpers()
@@ -271,7 +272,7 @@ class _UniffiHelpers {
                 prefix = "lib";
                 suffix = ".dylib";
             }
-            
+
             if (!string.IsNullOrWhiteSpace(arch) && !string.IsNullOrWhiteSpace(os) && prefix != null && !string.IsNullOrWhiteSpace(suffix))
             {
                 var fullPath = Path.Combine(AppContext.BaseDirectory, "runtimes", $"{os}-{arch}", "native", $"{prefix}{libraryName}{suffix}");
@@ -286,7 +287,6 @@ class _UniffiHelpers {
         return IntPtr.Zero;
     }
 #endif
-
 
     public delegate U RustCallFunc<out U>(ref UniffiRustCallStatus status);
 
@@ -4567,6 +4567,8 @@ public static class IotzioMethods {
 }
 
 
+
+
 #if ANDROID
 public static partial class AndroidHelper
 {
@@ -4599,3 +4601,5 @@ public static partial class AndroidHelper
     internal static partial byte OnActivityCreateNative(IntPtr env, IntPtr thiz, IntPtr context);
 }
 #endif
+
+
