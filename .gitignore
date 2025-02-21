@@ -340,5 +340,4 @@ ASALocalRun/
 healthchecksdb
 
 # Iotzio
-runtimes/
 nuget/

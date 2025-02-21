@@ -236,10 +236,56 @@ class _UniffiHelpers {
     public delegate void RustCallAction(ref UniffiRustCallStatus status);
 
 
+#if ANDROID
+#else
     static _UniffiHelpers()
     {
-        _ = IotzioCore.lazyInitializer;
+        NativeLibrary.SetDllImportResolver(typeof(_UniffiHelpers).Assembly, DllImportResolver);
     }
+
+    private static IntPtr DllImportResolver(string libraryName, System.Reflection.Assembly assembly, DllImportSearchPath? searchPath)
+    {
+        if ("iotzio_core".Equals(libraryName))
+        {
+            var arch = RuntimeInformation.ProcessArchitecture.ToString().ToLower();
+
+            var os = (string?)null;
+            var prefix = (string?)null;
+            var suffix = (string?)null;
+
+            if (OperatingSystem.IsWindows())
+            {
+                os = "win";
+                prefix = string.Empty;
+                suffix = ".dll";
+            }
+            else if (OperatingSystem.IsLinux())
+            {
+                os = "linux";
+                prefix = "lib";
+                suffix = ".so";
+            }
+            else if (OperatingSystem.IsMacOS())
+            {
+                os = "osx";
+                prefix = "lib";
+                suffix = ".dylib";
+            }
+            
+            if (!string.IsNullOrWhiteSpace(arch) && !string.IsNullOrWhiteSpace(os) && prefix != null && !string.IsNullOrWhiteSpace(suffix))
+            {
+                var fullPath = Path.Combine(AppContext.BaseDirectory, "runtimes", $"{os}-{arch}", "native", $"{prefix}{libraryName}{suffix}");
+
+                if (File.Exists(fullPath))
+                {
+                    return NativeLibrary.Load(fullPath);
+                }
+            }
+        }
+
+        return IntPtr.Zero;
+    }
+#endif
 
 
     public delegate U RustCallFunc<out U>(ref UniffiRustCallStatus status);
@@ -4521,76 +4567,9 @@ public static class IotzioMethods {
 }
 
 
-
-
-internal static class IotzioCore
-{
-
-    internal static readonly bool lazyInitializer = false;
-
-    static IotzioCore()
-    {
-        NativeLibrary.SetDllImportResolver(typeof(_UniffiHelpers).Assembly, DllImportResolver);
-    }
-
-    private static IntPtr DllImportResolver(string libraryName, System.Reflection.Assembly assembly, DllImportSearchPath? searchPath)
-    {
-        if ("iotzio_core".Equals(libraryName))
-        {
-            var arch = RuntimeInformation.ProcessArchitecture.ToString().ToLower();
-
-            var os = (string?)null;
-            var prefix = (string?)null;
-            var suffix = (string?)null;
-
-            if (OperatingSystem.IsWindows())
-            {
-                os = "win";
-                prefix = string.Empty;
-                suffix = ".dll";
-            }
-            else if (OperatingSystem.IsLinux())
-            {
-                os = "linux";
-                prefix = "lib";
-                suffix = ".so";
-            }
-            else if (OperatingSystem.IsMacOS())
-            {
-                os = "osx";
-                prefix = "lib";
-                suffix = ".dylib";
-            }
-            else if (OperatingSystem.IsAndroid())
-            {
-                os = "android";
-                prefix = "lib";
-                suffix = ".so";
-            }
-
-            if (!string.IsNullOrWhiteSpace(arch) && !string.IsNullOrWhiteSpace(os) && prefix != null && !string.IsNullOrWhiteSpace(suffix))
-            {
-                var fullPath = Path.Combine(AppContext.BaseDirectory, "runtimes", $"{os}-{arch}", "native", $"{prefix}{libraryName}{suffix}");
-
-                if (File.Exists(fullPath))
-                {
-                    return NativeLibrary.Load(fullPath);
-                }
-            }
-        }
-
-        return IntPtr.Zero;
-    }
-}
-
 #if ANDROID
 public static partial class AndroidHelper
 {
-
-    static AndroidHelper()
-    {
-        _ = IotzioCore.lazyInitializer;
-    }
 
     private static object? libraryLoaded = null;
 
@@ -4620,5 +4599,3 @@ public static partial class AndroidHelper
     internal static partial byte OnActivityCreateNative(IntPtr env, IntPtr thiz, IntPtr context);
 }
 #endif
-
-

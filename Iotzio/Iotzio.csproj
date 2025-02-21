@@ -1,79 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
-    <Nullable>enable</Nullable>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net8.0;net8.0-android</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0'">
-    <RuntimeIdentifiers>win-x64;win-x86;win-arm64;linux-x64;linux-x86;linux-arm64;linux-arm;osx-x64;osx-arm64</RuntimeIdentifiers>
-  </PropertyGroup>
+    <PropertyGroup>
+        <Version>0.1.0</Version>
+        <Copyright>MIT</Copyright>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageProjectUrl>https://github.com/Iotzio-Project/iotzio-dotnet</PackageProjectUrl>
+        <PackageId>Iotzio</PackageId>
+        <Authors>Iotzio Project</Authors>
+        <Product>Iotzio</Product>
+        <Description>Iotzio API for .NET languages C#, F# and VB</Description>
+        <RepositoryUrl>https://github.com/Iotzio-Project/iotzio-dotnet</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-    <RuntimeIdentifiers>android-x64;android-x86;android-arm64;android-arm</RuntimeIdentifiers>
-  </PropertyGroup>
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="/" />
 
-  
-  <PropertyGroup>
-    <Version>0.1.0</Version>
-    <Copyright>MIT</Copyright>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageProjectUrl>https://github.com/Iotzio-Project/iotzio-dotnet</PackageProjectUrl>
-    <PackageId>Iotzio</PackageId>
-    <Authors>Iotzio Project</Authors>
-    <Product>Iotzio</Product>
-    <Description>Iotzio API for .NET languages C#, F# and VB</Description>
-    <RepositoryUrl>https://github.com/Iotzio-Project/iotzio-dotnet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-  </PropertyGroup>
+        <None Include="../LICENSE" Pack="true" PackagePath="/" />
+    </ItemGroup>
 
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+        <ProjectReference Include="..\Iotzio.Net\Iotzio.Net.csproj" />
+    </ItemGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-    
-    <None Include="../runtimes/win-x64/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-x64/native/" />
-
-    <None Include="../runtimes/win-x86/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-x86/native/" />
-
-    <None Include="../runtimes/win-arm64/native/iotzio_core.dll" Pack="true" PackagePath="runtimes/win-arm64/native/" />
-  
-    <None Include="../runtimes/linux-x64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-x64/native/" />
-
-    <None Include="../runtimes/linux-x86/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-x86/native/" />
-
-    <None Include="../runtimes/linux-arm64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-arm64/native/" />
-
-    <None Include="../runtimes/linux-arm/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/linux-arm/native/" />
-
-    <None Include="../runtimes/osx-x64/native/libiotzio_core.dylib" Pack="true" PackagePath="runtimes/osx-x64/native/" />
-
-    <None Include="../runtimes/osx-arm64/native/libiotzio_core.dylib" Pack="true" PackagePath="runtimes/osx-arm64/native/" />
-
-  </ItemGroup>
-
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
-
-    <None Include="../runtimes/android-x64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-x64/native/" />
-
-    <None Include="../runtimes/android-x86/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-x86/native/" />
-
-    <None Include="../runtimes/android-arm64/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-arm64/native/" />
-
-    <None Include="../runtimes/android-arm/native/libiotzio_core.so" Pack="true" PackagePath="runtimes/android-arm/native/" />
-    
-  </ItemGroup>
-
-
-  <ItemGroup>
-    
-    <None Include="../README.md" Pack="true" PackagePath="/" />
-
-    <None Include="../LICENSE" Pack="true" PackagePath="/" />
-
-  </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-android'">
+        <ProjectReference Include="..\Iotzio.NetAndroid\Iotzio.NetAndroid.csproj" />
+    </ItemGroup>
 
 </Project>
