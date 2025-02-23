@@ -1,6 +1,6 @@
 # Iotzio
 
-The Iotzio API allows interaction with Iotzio devices. An Iotzio device is a USB connected microcontroller that enables the host computer to directly control peripherals such as GPIOs, utilize PWM, use I2C, SPI, Onewire and other bus protocols and devices that are not typically available to an application developer on a standard computer. This API is also available to many other programming languages. No extra drivers required!
+The Iotzio API allows interaction with Iotzio devices. An Iotzio device is a USB connected microchip that enables the host computer to directly control peripherals such as GPIOs, utilize PWM, use I2C, SPI, Onewire and other bus protocols and devices that are not typically available to an application developer on a standard computer. This API is also available to many other programming languages. No extra drivers required!
 
 ## Features
 

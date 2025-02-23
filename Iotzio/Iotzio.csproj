@@ -14,7 +14,7 @@
         <PackageId>Iotzio</PackageId>
         <Authors>Iotzio Project</Authors>
         <Product>Iotzio</Product>
-        <Description>Iotzio API for .NET languages C#, F# and VB</Description>
+        <Description>The Iotzio API allows interaction with Iotzio devices. An Iotzio device is a USB connected microchip that enables the host computer to directly control peripherals such as GPIOs, utilize PWM, use I2C, SPI, Onewire and other bus protocols and devices that are not typically available to an application developer on a standard computer.</Description>
         <RepositoryUrl>https://github.com/Iotzio-Project/iotzio-dotnet</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
