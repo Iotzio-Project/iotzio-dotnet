@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Iotzio\Iotzio.csproj" />
+    <PackageReference Include="Iotzio" Version="0.1.0" />
   </ItemGroup>
 
 </Project>

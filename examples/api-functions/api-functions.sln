@@ -5,12 +5,6 @@ VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListIotzios", "ListIotzios\ListIotzios.csproj", "{887CE814-D784-46C9-8EEA-3B3595EC28D3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio", "..\..\Iotzio\Iotzio.csproj", "{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.NetAndroid", "..\..\Iotzio.NetAndroid\Iotzio.NetAndroid.csproj", "{7A27355C-C07A-4696-904E-E29F79C91494}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.Net", "..\..\Iotzio.Net\Iotzio.Net.csproj", "{EFE64205-FD86-4ACE-91D8-F451D7633E47}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,18 +15,6 @@ Global
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{887CE814-D784-46C9-8EEA-3B3595EC28D3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A27355C-C07A-4696-904E-E29F79C91494}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A27355C-C07A-4696-904E-E29F79C91494}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A27355C-C07A-4696-904E-E29F79C91494}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A27355C-C07A-4696-904E-E29F79C91494}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFE64205-FD86-4ACE-91D8-F451D7633E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFE64205-FD86-4ACE-91D8-F451D7633E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFE64205-FD86-4ACE-91D8-F451D7633E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFE64205-FD86-4ACE-91D8-F451D7633E47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,15 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35818.85 d17.13
+VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiAppIotzio", "MauiAppIotzio.csproj", "{99C1FFE1-C6E1-4728-ABF5-993A3CE0E2EE}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio", "..\..\Iotzio\Iotzio.csproj", "{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.Net", "..\..\Iotzio.Net\Iotzio.Net.csproj", "{C68E9D0E-6ADD-96E7-AF5A-28B655519B49}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iotzio.NetAndroid", "..\..\Iotzio.NetAndroid\Iotzio.NetAndroid.csproj", "{FD8A825A-E553-DEA0-7F3D-58A952DD6BA4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,18 +17,6 @@ Global
 		{99C1FFE1-C6E1-4728-ABF5-993A3CE0E2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C1FFE1-C6E1-4728-ABF5-993A3CE0E2EE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99C1FFE1-C6E1-4728-ABF5-993A3CE0E2EE}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C341C0EB-18F7-E1CF-6CBF-90F8B13157A0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C68E9D0E-6ADD-96E7-AF5A-28B655519B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C68E9D0E-6ADD-96E7-AF5A-28B655519B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C68E9D0E-6ADD-96E7-AF5A-28B655519B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C68E9D0E-6ADD-96E7-AF5A-28B655519B49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD8A825A-E553-DEA0-7F3D-58A952DD6BA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD8A825A-E553-DEA0-7F3D-58A952DD6BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD8A825A-E553-DEA0-7F3D-58A952DD6BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD8A825A-E553-DEA0-7F3D-58A952DD6BA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
