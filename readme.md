@@ -20,7 +20,7 @@ The Iotzio board is compatible with the following platforms:
 
 ## Installation
 
-Install `Iotzio` package using `nuget`.
+Install `Iotzio` package using [Nuget](https://www.nuget.org/packages/Iotzio).
 
 ## Usage
 Here is a simple example of how to use the Iotzio nuget package:
