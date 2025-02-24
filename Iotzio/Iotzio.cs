@@ -4565,3 +4565,4 @@ class FfiConverterSequenceTypeIotzioInfo: FfiConverterRustBuffer<List<IotzioInfo
 #pragma warning restore 8625
 public static class IotzioMethods {
 }
+
