@@ -1,6 +1,6 @@
 # API Functions Example
 
-This project contains various examples that can be run on a computer. Each example is a separate project.
+This solution contains various examples that can be run on a computer. Each example is a separate project.
 
 ## Running the Examples
 
