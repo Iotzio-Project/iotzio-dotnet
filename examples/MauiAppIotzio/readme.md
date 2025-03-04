@@ -1,8 +1,8 @@
-# .NET MAUI Examples
+# .NET MAUI Example
 
 This .NET MAUI App example can run on Windows and Android.
 
-## Running the Examples
+## Running the Example
 
 To run the desired example on Windows:
 
