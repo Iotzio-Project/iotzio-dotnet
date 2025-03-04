@@ -12,15 +12,15 @@ The Iotzio API allows interaction with Iotzio devices. An Iotzio device is a USB
 ## Compatibility
 
 The Iotzio board is compatible with the following platforms:
-- Windows
-- Linux
-- macOS
-- Android
-- WebAssembly
+- Windows (10, 11)
+- Linux (Kernel >= 3.0)
+- macOS (>= Catalina 10.15)
+- Android (Version >= 8.0 / API Level >= 26)
+- WebAssembly (WebHID support required)
 
 ## Installation
 
-Install `Iotzio` package using [Nuget](https://www.nuget.org/packages/Iotzio).
+Install `Iotzio` package using [Nuget](https://www.nuget.org/packages/Iotzio). `net8.0`/`net8.0-android` and higher is supported.
 
 ## Usage
 Here is a simple example of how to use the Iotzio nuget package:
