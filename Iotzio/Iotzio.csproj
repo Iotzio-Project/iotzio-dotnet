@@ -19,12 +19,16 @@
         <RepositoryType>git</RepositoryType>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <DocumentationFile>bin/Iotzio.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="/" />
 
         <None Include="../LICENSE" Pack="true" PackagePath="/" />
+
+        <None Include="bin/Iotzio.xml" Pack="true" PackagePath="/" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
