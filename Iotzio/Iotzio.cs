@@ -1818,7 +1818,7 @@ public abstract class FFIObject: IDisposable {
     protected abstract void FreeRustArcPtr();
     protected abstract void CloneRustArcPtr();
 
-    public void Destroy()
+    internal void Destroy()
     {
         // Only allow a single call to this method.
         if (Interlocked.CompareExchange(ref _wasDestroyed, 1, 0) == 0)
