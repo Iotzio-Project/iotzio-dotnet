@@ -16,7 +16,8 @@ The Iotzio board is compatible with the following platforms:
 - Linux (Kernel >= 3.0)
 - macOS (>= Catalina 10.15)
 - Android (Version >= 8.0 / API Level >= 26)
-- WebAssembly (WebHID support required)
+- Browser ([WebHID support required](https://developer.mozilla.org/en-US/docs/Web/API/WebHID_API#browser_compatibility))
+
 
 ## Installation
 
@@ -42,6 +43,9 @@ Further examples are located in the [examples folder](https://github.com/Iotzio-
 
 ## Notes
 
+- On some USB type C ports, the Iotzio device may not be recognized, as USB 1.1 devices are not officially supported by the USB-C standard. While many manufacturers still accommodate them, Apple® for examples does not. A workaround is to use a USB hub in between or just a Type A port.
+
+
 - On Linux, it is necessary to grant read and write permissions for the Iotzio device:
 
     ```sh
@@ -57,9 +61,7 @@ Further examples are located in the [examples folder](https://github.com/Iotzio-
     ```
 
     ```sh
-    sudo udevadm control --reload-rules
+    sudo reboot
     ```
 
-    ```sh
-    sudo udevadm trigger
-    ```
+- On Linux, you might encounter difficulties using the Iotzio device in browsers distributed as Snap packages, as they often lack the necessary permissions.
